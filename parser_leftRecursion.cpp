@@ -7,11 +7,23 @@ char nextToken;
 void F()
 {
     if(nextToken == 'i')
+    {
         nextToken=s[++i];
+        cout<<"i: "<<i<<endl;
+        cout<<"nextToken: "<<nextToken<<endl;
+    }
     else if(nextToken == 'n')
+    {
         nextToken=s[++i];
+        cout<<"i: "<<i<<endl;
+        cout<<"nextToken: "<<nextToken<<endl;
+    }
 
-    else errFlag++;
+    else
+    {
+        errFlag++;
+        cout<<"ERROR"<<endl;
+    }
 }
 
 void T()
@@ -22,14 +34,19 @@ void T()
         if(nextToken=='*')
         {
             nextToken=s[++i];
+            cout<<"i: "<<i<<endl;
+            cout<<"nextToken: "<<nextToken<<endl;
             F();
         }
         else if(nextToken=='/')
         {
             nextToken=s[++i];
+            cout<<"i: "<<i<<endl;
+            cout<<"nextToken: "<<nextToken<<endl;
             F();
         }
-        else return;
+        else
+            return;
     }
 }
 void E()
@@ -40,14 +57,19 @@ void E()
         if(nextToken=='+')
         {
             nextToken=s[++i];
+            cout<<"i: "<<i<<endl;
+            cout<<"nextToken: "<<nextToken<<endl;
             F();
         }
         else if(nextToken=='-')
         {
             nextToken=s[++i];
+            cout<<"i: "<<i<<endl;
+            cout<<"nextToken: "<<nextToken<<endl;
             F();
         }
-        else return;
+        else
+            return;
     }
 }
 
@@ -55,9 +77,14 @@ int main()
 {
     cin>>s;
 
-    nextToken=s[i];
-    E();
     int s_len=s.length();
+
+    cout<<"s_len: "<<s_len<<endl<<endl;
+    nextToken=s[i];
+
+    cout<<"i: "<<i<<endl;
+    cout<<"nextToken: "<<nextToken<<endl;
+        E();
     if(i==s_len && errFlag==0)
         cout<<"Accepted"<<endl;
     else
